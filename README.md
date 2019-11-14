@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/fred8728/CA3_backend.svg?branch=master)](https://travis-ci.com/fred8728/CA3_backend)
 
+[![Build Status](https://travis-ci.org/bananahowl/CA3-backend.svg?branch=master)](https://travis-ci.org/bananahowl/CA3-backend)
 
 ## CA3 backend project 
 
