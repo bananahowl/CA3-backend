@@ -75,9 +75,28 @@ public class DemoResource {
     }
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("person/{id}")  
+    @Path("swPerson/{id}")  
     public String getSwPeopleData(@PathParam("id") int id) throws MalformedURLException, IOException{
     URL url = new URL("https://swapi.co/api/people/"+id);
+    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+    con.setRequestMethod("GET");
+    con.setRequestProperty("Accept", "application/json;charset=UTF-8");
+    con.setRequestProperty("User-Agent", "server"); //remember if you are using SWAPI
+    Scanner scan = new Scanner(con.getInputStream());
+    String jsonStr = null;
+    if (scan.hasNext()) {
+      jsonStr = scan.nextLine();
+      //jsonStr += "\n";
+    }
+    scan.close();
+    return jsonStr;
+  }
+    
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("swPlanet/{id}")  
+    public String getSwPlanetData(@PathParam("id") int id) throws MalformedURLException, IOException{
+    URL url = new URL("https://swapi.co/api/planets/"+id);
     HttpURLConnection con = (HttpURLConnection) url.openConnection();
     con.setRequestMethod("GET");
     con.setRequestProperty("Accept", "application/json;charset=UTF-8");
